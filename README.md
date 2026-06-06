@@ -1023,6 +1023,49 @@ getAssets().open("data.json");
 - Không cần Internet
 - Dữ liệu đi theo APK
 
+ # tạo app1 sử dụng cơ chế Dữ liệu chuẩn bị trước trong Assets
+-  Tạo Project mới trong Android Studio
+   > - File → New → New Project → Empty Views Activity
+<img width="1115" height="806" alt="image" src="https://github.com/user-attachments/assets/072e1a6a-ad69-47d2-ae6c-8c3463cad888" />
+
+- Tạo thư mục Assets:
+Click chuột phải vào thư mục app → New → Folder → Assets Folder → Finish
+<img width="1122" height="806" alt="image" src="https://github.com/user-attachments/assets/51567406-b9a8-43ab-9d95-f71391210312" />
+- Tạo file foods.json:
+Click chuột phải vào thư mục assets vừa tạo → New → File → đặt tên foods.json
+<img width="468" height="329" alt="image" src="https://github.com/user-attachments/assets/d8524e4d-0237-48b4-9098-8d85cca95032" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/edbcde90-c9a7-49bf-afa1-f83b815b1ac6" />
+
+- Thiết kế giao diện (activity_main.xml)
+   > - Mở res/layout/activity_main.xml 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/65e1cfac-cd21-49a4-8f44-3de1be9fd59a" />
+
+- Viết code Java (MainActivity.java)
+   > - Mở MainActivity.java
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/09a6b1cf-897b-4f46-938f-25939731bc16" />
+
+- mở file res/values/strings.xml
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/de20a996-f1e1-48ac-b25c-0c1e9f829352" />
+
+- chạy bài
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f6651d3f-7cde-41c8-aaab-676077565657" />
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
