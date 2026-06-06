@@ -66,3 +66,44 @@ APP2 (android studio):  tạo app tương đương với Mit App inventor
     kèm hình ảnh minh hoạ quá trình làm.
 
     print ra giấy đóng quyển, nộp bm.
+## BÀI LÀM
+# 1. Viết phần mềm trên công cụ Mit App inventor
+- Tạo Project
+   > - Vào appinventor.mit.edu → Create Apps! → đăng nhập Google
+   > - Click Projects → Start new project → đặt tên ví dụ BaiTapLon
+<img width="953" height="1079" alt="image" src="https://github.com/user-attachments/assets/d9591091-833c-4f18-b89d-bc41b0960e4f" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d8be158f-814a-4cb1-b76e-26ef64e0cd7e" />
+
+- Tạo Screen1 (About bản thân)
+- Kéo Label ->  Đổi nội dung -> Bên phải: Properties -> Tìm: Text -> đổi thành thông tin cá nhân ( làm y hệt như vậy với 2 label còn lại)
+- Tạo Button: Kéo: Button -> Text:  giải toán ( button Web view cũng làm tương tự)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f5ab36fc-006e-4fe1-b990-28e4d295edfe" />
+
+Nút mở Screen2
+
+- THIẾT KẾ SCREEN 2 (GIẢI PHƯƠNG TRÌNH ax+b=0)
+  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/74356cac-35f1-4c00-83e3-b51674de5618" />
+
+- Viết Block giải toán
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/610a0748-64e4-42ae-8988-0ca2e22de123" />
+
+- THIẾT KẾ SCREEN 3
+- ở phần url sẽ để https://www.google.com , để test thử xem phần mit app có hoạt động không
+- Kéo thêm 1 dòng chữ (Label) từ cột User Interface bên trái thả vào màn hình, đặt nó nằm phía trên hoặc phía dưới cái WebViewer đó. Thay đổi chữ hiển thị của nút bấm thành: "bài tập của xuân trang".
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e5c40280-2ab1-4ff1-ac0a-da6409528b2f" />
+- kết quả test
+- Nút bấm chứa tên vẫn nằm ở đó, còn ô phía dưới thì hiển thị trang Google! Điều này chứng tỏ app của bạn hoạt động
+
+<img width="1179" height="2556" alt="image" src="https://github.com/user-attachments/assets/16915861-6068-4a8f-b14b-c33bfcdee65a" />
+
+
+
+
+
+
+
+
+
+
+    
