@@ -1069,9 +1069,53 @@ Test 1 — Tìm theo tên món:
    > - Phải hiện lại toàn bộ món
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c0694741-a57c-4d9b-9aa6-219177d8c2ae" />
 
+# APP2 (android studio):  tạo app tương đương với Mit App inventor
+-   Tạo Project mới trong Android Studio
+   > - File → New → New Project → Empty Views Activity
+<img width="1112" height="803" alt="image" src="https://github.com/user-attachments/assets/693a21d5-973b-4563-bd9a-5bc2d1d30b78" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9f4c1136-765d-4fd0-bf7d-9878b27e56b7" />
+
+
+- Tạo thêm Activity 2 và Activity 3
+    >   - Mặc định dự án mới chỉ có sẵn MainActivity (ta sẽ dùng làm Activity1). Nên phải tạo thêm 2 màn hình nữa:
++ cột thư mục bên trái (tab Project), tìm đường dẫn: app ->  java -> com.example.app2mitinventor
++ Chuột phải vào thư mục tên package đó ->  Chọn New -> Activity->  Empty Views Activity.
++ Đặt tên là Activity2 ->  Nhấn Finish.
++ Tiếp tục làm lại thao tác trên: Chuột phải vào package -> New -> Activity -> Empty Views Activity-> Đặt tên là Activity3 -> Nhấn Finish.
+  
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 
 
