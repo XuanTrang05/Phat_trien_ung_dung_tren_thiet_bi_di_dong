@@ -97,6 +97,102 @@ Nút mở Screen2
 
 <img width="1179" height="2556" alt="image" src="https://github.com/user-attachments/assets/16915861-6068-4a8f-b14b-c33bfcdee65a" />
 
+cat > /mnt/user-data/outputs/MoTa_MITAppInventor.md << 'EOF'
+# Mô tả công cụ MIT App Inventor
+
+## Thanh công cụ Designer — có gì?
+
+Giao diện Designer gồm 4 khu vực chính:
+
+### Palette (bên trái)
+- Chứa toàn bộ các component sẵn có, chia theo nhóm:
+  - **User Interface**: Button, Label, TextBox, Image, CheckBox...
+  - **Layout**: HorizontalArrangement, VerticalArrangement, TableArrangement
+  - **Media**: Camera, Player, Sound...
+  - **Connectivity**: Web, BluetoothClient...
+  - **Sensors**: LocationSensor, AccelerometerSensor...
+- Mục đích: là kho component để lập trình viên chọn và kéo vào giao diện
+
+### Viewer (ở giữa)
+- Mô phỏng màn hình điện thoại Android
+- Lập trình viên kéo component từ Palette thả vào đây để bố trí giao diện
+- Hiển thị trực quan giao diện sẽ trông như thế nào trên điện thoại thật
+
+### Components (bên phải trên)
+- Hiển thị cây phân cấp tất cả component đang có trong screen
+- Dùng để chọn nhanh một component, đổi tên (Rename) hoặc xoá (Delete)
+- Thể hiện quan hệ cha-con giữa các component (ví dụ Button nằm trong VerticalArrangement)
+
+### Properties (bên phải dưới)
+- Hiển thị toàn bộ thuộc tính của component đang được chọn
+- Ví dụ: Text, FontSize, FontBold, BackgroundColor, Width, Height, Visible...
+- Mục đích: tuỳ chỉnh ngoại hình và hành vi của component mà không cần viết code
+
+---
+
+## Kéo thả + thay đổi thuộc tính — làm như thế nào, để làm gì?
+
+### Cách kéo thả component:
+1. Tìm component cần dùng trong **Palette** bên trái
+2. Giữ chuột trái vào component đó
+3. Kéo sang vùng **Viewer** ở giữa rồi thả ra
+4. Component xuất hiện trên giao diện, đồng thời xuất hiện trong cây **Components**
+
+### Cách thay đổi thuộc tính:
+1. Click vào component trong **Viewer** hoặc trong **Components**
+2. Bảng **Properties** bên phải tự động hiển thị thuộc tính của component đó
+3. Thay đổi giá trị trực tiếp: gõ chữ vào ô Text, chọn màu ở BackgroundColor, tick vào FontBold...
+4. Giao diện trong Viewer cập nhật ngay lập tức
+
+### Để làm gì?
+- Xây dựng giao diện người dùng (UI) một cách trực quan
+- Không cần viết XML hay code để tạo layout
+- Thấy ngay kết quả sau mỗi thay đổi → dễ chỉnh sửa, dễ thử nghiệm
+
+> 📸 *[Chèn ảnh màn hình Designer tại đây]*
+
+---
+
+## Block — Bản chất việc kéo thả block là gì?
+
+### Bản chất:
+- Mỗi **block** là một lệnh lập trình được biểu diễn bằng **hình khối màu sắc**
+- Các block có **hình dạng khớp nhau theo kiểu dữ liệu**: block số chỉ ghép được vào ô nhận số, block boolean chỉ ghép được vào ô điều kiện → không thể ghép sai kiểu
+- Lập trình viên **kéo block từ danh sách bên trái** (Built-in hoặc tên component) rồi **thả vào vùng làm việc** ở giữa
+- Các block ghép lại với nhau như **xếp hình LEGO**: block con lồng vào block cha để tạo thành cấu trúc lệnh hoàn chỉnh
+- Kết quả là một **chương trình chạy được** mà không cần gõ một dòng code nào
+
+### Ưu điểm so với viết code:
+| Tiêu chí | Block | Viết code |
+|---|---|---|
+| Lỗi cú pháp | Không có (không thể ghép sai) | Thường xuyên xảy ra |
+| Dễ học | Rất dễ, phù hợp người mới | Cần học ngôn ngữ lập trình |
+| Trực quan | Thấy ngay cấu trúc logic | Phải đọc hiểu từng dòng |
+| Tốc độ làm | Nhanh với app đơn giản | Chậm hơn nhưng linh hoạt hơn |
+
+### Nhược điểm so với viết code:
+- Khó xử lý logic phức tạp (nhiều vòng lặp lồng nhau, đệ quy...)
+- Không thể dùng thư viện ngoài
+- Khó tái sử dụng code, khó quản lý khi app lớn
+- Không có tính năng debug nâng cao
+- Hiệu năng thấp hơn so với app viết bằng code thật
+
+## Backpack — Copy Paste Block giữa các Screen
+
+### Backpack là gì?
+- Backpack (cái ba lô) là **vùng lưu trữ tạm thời** cho block, nằm ở **góc trên bên phải** màn hình Blocks
+- Biểu tượng trông như một chiếc ba lô màu xanh lá
+
+### Cách dùng:
+1. Kéo block muốn copy vào **biểu tượng Backpack** → block được lưu vào đó
+2. Chuyển sang **Screen khác** (click tên screen ở thanh trên)
+3. Kéo block từ **Backpack** ra vùng làm việc → block được dán sang screen mới
+4. Block gốc ở screen cũ vẫn còn nguyên
+
+### Dùng để làm gì?
+- **Tái sử dụng logic** giữa các screen mà không cần làm lại từ đầu
+- Ví dụ: block kiểm tra dữ liệu nhập vào giống nhau ở Screen2 và Screen3 → copy qua Backpack thay vì làm lại
+- Tiết kiệm thời gian khi nhiều screen có logic tương tự nhau
 
 
 
