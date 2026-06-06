@@ -1050,13 +1050,24 @@ Click chuột phải vào thư mục assets vừa tạo → New → File → đ�
 - chạy bài
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f6651d3f-7cde-41c8-aaab-676077565657" />
 
-  
+- Test thử các chức năng sau:
+Test 1 — Tìm theo tên món:
+   > - Click vào ô tìm kiếm → gõ Pho → click Tim kiếm
+   > - Kết quả hiện ra Phở Bò
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2e407c1c-1c4d-48fc-ae4f-8e02b114a00d" />
 
-
-
-
-
-
+- Test 2 — Tìm theo vùng miền:
+   > - Xoá rồi gõ Mien Bac → click Tim Kiem
+   > - Kết quả hiện các món ăn đặc sản miền bắc
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/620169fd-c49d-4be2-ae24-d964d4582f42" />
+- Test 3 — Không tìm thấy:
+   > - Gõ xyz → click Tim Kiem
+   > - Phải hiện "Tìm thấy 0 món
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a13d3724-747e-4440-8257-c28bc2d61fba" />
+- Test 4 — Xoá hết từ khoá:
+   > - Xoá trống ô tìm kiếm → click Tim Kiem
+   > - Phải hiện lại toàn bộ món
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c0694741-a57c-4d9b-9aa6-219177d8c2ae" />
 
 
 
