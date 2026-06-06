@@ -195,9 +195,833 @@ Giao diện Designer gồm 4 khu vực chính:
 - Tiết kiệm thời gian khi nhiều screen có logic tương tự nhau
 
 
+### 2. Viết app sử dụng Android Studio
+# Android Cơ Bản - Ghi Chú Tổng Hợp
 
+# 1. AndroidManifest.xml
 
+## AndroidManifest.xml là gì?
 
+Là file cấu hình trung tâm của ứng dụng Android.
+
+Hệ điều hành Android sẽ đọc file này trước khi chạy app để biết:
+
+- Tên package của app
+- Các Activity, Service, Broadcast Receiver, Content Provider
+- Các quyền (Permission) app yêu cầu
+- Phiên bản Android hỗ trợ
+- Theme mặc định
+- Activity nào là màn hình khởi động
+
+Ví dụ:
+
+```xml
+<manifest ...>
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <application
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>
+```
+
+---
+
+## App cần quyền (Permission) để làm gì?
+
+Android bảo vệ tài nguyên người dùng.
+
+Ví dụ:
+
+| Chức năng | Quyền |
+|------------|------------|
+| Camera | CAMERA |
+| GPS | ACCESS_FINE_LOCATION |
+| Danh bạ | READ_CONTACTS |
+| Gọi điện | CALL_PHONE |
+| Micro | RECORD_AUDIO |
+
+Nếu không có quyền:
+
+→ Android sẽ chặn thao tác.
+
+---
+
+## Khai báo quyền như thế nào?
+
+Trong AndroidManifest.xml:
+
+```xml
+<uses-permission android:name="android.permission.CAMERA"/>
+```
+
+```xml
+<uses-permission
+    android:name="android.permission.ACCESS_FINE_LOCATION"/>
+```
+
+---
+
+# 2. Vòng đời (Lifecycle) của Activity
+
+Một Activity thường trải qua các trạng thái:
+
+```text
+onCreate()
+    ↓
+onStart()
+    ↓
+onResume()
+    ↓
+[User đang sử dụng]
+
+    ↓
+onPause()
+
+    ↓
+onStop()
+
+    ↓
+onDestroy()
+```
+
+---
+
+## Ý nghĩa
+
+### onCreate()
+
+Khởi tạo Activity.
+
+Ví dụ:
+
+- load layout
+- ánh xạ View
+- khởi tạo dữ liệu
+
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    setContentView(R.layout.activity_main);
+}
+```
+
+---
+
+### onStart()
+
+Activity bắt đầu hiển thị.
+
+---
+
+### onResume()
+
+Người dùng bắt đầu tương tác được.
+
+---
+
+### onPause()
+
+Activity sắp mất focus.
+
+Ví dụ:
+
+- có cuộc gọi đến
+- mở app khác
+
+---
+
+### onStop()
+
+Activity không còn hiển thị.
+
+---
+
+### onDestroy()
+
+Activity bị hủy.
+
+---
+
+## Tại sao project mới tạo có sẵn onCreate()?
+
+Vì mọi Activity đều cần điểm bắt đầu để:
+
+- load giao diện
+- khởi tạo dữ liệu
+- đăng ký sự kiện
+
+Android Studio tự sinh hàm này để lập trình viên code tiếp.
+
+---
+
+# 3. Kiểm tra quyền trong Java
+
+## Kiểm tra đã có quyền chưa
+
+Ví dụ Camera:
+
+```java
+if (ContextCompat.checkSelfPermission(
+        this,
+        Manifest.permission.CAMERA)
+        == PackageManager.PERMISSION_GRANTED) {
+
+    // Đã có quyền
+
+}
+```
+
+---
+
+## Ý nghĩa
+
+```java
+checkSelfPermission(...)
+```
+
+Hỏi Android:
+
+> "Người dùng đã cấp quyền Camera cho app chưa?"
+
+Kết quả:
+
+```java
+PERMISSION_GRANTED
+```
+
+hoặc
+
+```java
+PERMISSION_DENIED
+```
+
+---
+
+## Xin quyền
+
+```java
+ActivityCompat.requestPermissions(
+        this,
+        new String[]{
+                Manifest.permission.CAMERA
+        },
+        100);
+```
+
+Android sẽ hiện popup hỏi người dùng.
+
+---
+
+# 4. Giao diện (Layout)
+
+Vị trí:
+
+```text
+res/layout
+```
+
+Ví dụ:
+
+```xml
+<TextView
+    android:id="@+id/txtName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Hello"/>
+```
+
+---
+
+# 5. Tránh Hardcode Text
+
+Không nên:
+
+```xml
+android:text="Hello"
+```
+
+Nên:
+
+```xml
+android:text="@string/hello"
+```
+
+---
+
+## Khai báo trong strings.xml
+
+```xml
+<resources>
+
+    <string name="hello">
+        Hello
+    </string>
+
+</resources>
+```
+
+---
+
+## Cú pháp tham chiếu
+
+```xml
+@string/hello
+```
+
+Ý nghĩa:
+
+```text
+@
+↓
+tham chiếu resource
+
+string
+↓
+loại resource
+
+hello
+↓
+tên resource
+```
+
+---
+
+## Các kiểu tham chiếu khác
+
+```xml
+@string/app_name
+
+@color/red
+
+@drawable/logo
+
+@dimen/text_size
+
+@style/MyTheme
+```
+
+---
+
+# 6. Lợi ích của Resource Reference
+
+## Không hardcode
+
+Dễ sửa.
+
+Ví dụ:
+
+```xml
+<string name="hello">
+    Xin chào
+</string>
+```
+
+đổi thành:
+
+```xml
+<string name="hello">
+    Hello
+</string>
+```
+
+mọi nơi tự cập nhật.
+
+---
+
+## Hỗ trợ đa ngôn ngữ
+
+Ví dụ:
+
+```text
+res/values/strings.xml
+```
+
+Tiếng Anh
+
+```xml
+<string name="hello">
+    Hello
+</string>
+```
+
+---
+
+```text
+res/values-vi/strings.xml
+```
+
+Tiếng Việt
+
+```xml
+<string name="hello">
+    Xin chào
+</string>
+```
+
+Android tự chọn theo ngôn ngữ máy.
+
+---
+
+## Hỗ trợ Theme
+
+Ví dụ:
+
+```xml
+@color/mainColor
+```
+
+Dark mode:
+
+```xml
+res/values-night
+```
+
+Android tự đổi màu.
+
+---
+
+## Hỗ trợ Location / Region
+
+Ví dụ:
+
+```text
+values-en-rUS
+values-en-rGB
+```
+
+Có thể hiển thị:
+
+```text
+Color
+```
+
+hoặc
+
+```text
+Colour
+```
+
+tùy quốc gia.
+
+---
+
+## Lợi ích
+
+App tự thích nghi với:
+
+- Language
+- Region
+- Theme
+- Dark Mode
+- Tablet
+- Phone
+
+mà không cần viết code xử lý thủ công.
+
+---
+
+# 7. Layout Chứa (ViewGroup)
+
+Là đối tượng dùng để chứa các View con.
+
+Ví dụ:
+
+- LinearLayout
+- RelativeLayout
+- ConstraintLayout
+- FrameLayout
+
+---
+
+## LinearLayout
+
+Sắp xếp các View theo hàng hoặc cột.
+
+### Theo chiều dọc
+
+```xml
+<LinearLayout
+    android:orientation="vertical">
+
+</LinearLayout>
+```
+
+```text
+Button1
+Button2
+Button3
+```
+
+---
+
+### Theo chiều ngang
+
+```xml
+<LinearLayout
+    android:orientation="horizontal">
+
+</LinearLayout>
+```
+
+```text
+Button1 Button2 Button3
+```
+
+---
+
+## Gravity
+
+Canh vị trí bên trong Layout.
+
+```xml
+android:gravity="center"
+```
+
+```xml
+android:gravity="end"
+```
+
+```xml
+android:gravity="bottom"
+```
+
+---
+
+# 8. Code Tương Tác Với Layout
+
+## Hiển thị text đúng Language hiện tại
+
+Không hardcode:
+
+```java
+textView.setText("Hello");
+```
+
+Nên:
+
+```java
+textView.setText(R.string.hello);
+```
+
+hoặc
+
+```java
+String text =
+        getString(R.string.hello);
+
+textView.setText(text);
+```
+
+Android tự lấy:
+
+- Tiếng Việt
+- Tiếng Anh
+- Theme tương ứng
+
+theo cấu hình thiết bị.
+
+---
+
+# 9. Event (Sự kiện)
+
+Ví dụ:
+
+- Click Button
+- Click TextView
+- Long Click
+- Touch
+
+---
+
+# Cách 1: Khai báo trong Layout
+
+XML:
+
+```xml
+<Button
+    android:onClick="btnSaveClick"/>
+```
+
+Java:
+
+```java
+public void btnSaveClick(View view){
+
+    // do something
+
+}
+```
+
+---
+
+# Cách 2: Đăng ký Listener bằng Code
+
+XML:
+
+```xml
+<Button
+    android:id="@+id/btnSave"/>
+```
+
+Java:
+
+```java
+Button btnSave =
+        findViewById(R.id.btnSave);
+
+btnSave.setOnClickListener(
+        new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                // do something
+
+            }
+        });
+```
+
+---
+
+## So sánh
+
+### android:onClick
+
+Ưu điểm:
+
+- Nhanh
+- Ít code
+
+Nhược điểm:
+
+- Khó quản lý khi project lớn
+
+---
+
+### setOnClickListener()
+
+Ưu điểm:
+
+- Chuyên nghiệp
+- Linh hoạt
+- Dễ bảo trì
+
+Được dùng phổ biến hơn.
+
+---
+
+# 10. Thư Mục Assets
+
+Vị trí:
+
+```text
+app
+ └─ src
+     └─ main
+         └─ assets
+```
+
+---
+
+## Đặc điểm
+
+Khi build APK:
+
+- toàn bộ file
+- toàn bộ thư mục con
+
+được đóng gói vào APK.
+
+Ví dụ:
+
+```text
+assets/
+    data.json
+    config.xml
+    books/book1.txt
+```
+
+sẽ đi theo app.
+
+---
+
+# 11. Truy Cập File Trong Assets
+
+Lấy AssetManager:
+
+```java
+AssetManager am = getAssets();
+```
+
+---
+
+## Mở file
+
+```java
+InputStream is =
+        getAssets().open("data.json");
+```
+
+---
+
+## File trong thư mục con
+
+```java
+InputStream is =
+        getAssets().open(
+                "books/book1.txt");
+```
+
+---
+
+## Đọc nội dung
+
+```java
+InputStream is =
+        getAssets().open("data.json");
+
+BufferedReader reader =
+        new BufferedReader(
+                new InputStreamReader(is));
+
+String line;
+
+while ((line = reader.readLine()) != null) {
+
+    Log.d("DATA", line);
+
+}
+```
+
+---
+
+# 12. Lợi Ích Của Assets
+
+## Hoạt động Offline
+
+Không cần Internet.
+
+Ví dụ:
+
+- từ điển
+- sách
+- dữ liệu cấu hình
+
+---
+
+## Tốc độ nhanh
+
+Không cần tải từ server.
+
+---
+
+## Giảm phụ thuộc mạng
+
+Mạng mất vẫn chạy được.
+
+---
+
+## Dùng cho dữ liệu tĩnh
+
+Ví dụ:
+
+```text
+JSON
+HTML
+TXT
+PDF
+Font
+Database SQLite
+```
+
+---
+
+# Tóm Tắt Phỏng Vấn / Thi
+
+## AndroidManifest.xml
+
+- Khai báo cấu hình ứng dụng
+- Khai báo quyền
+- Khai báo Activity
+
+## Lifecycle
+
+- onCreate
+- onStart
+- onResume
+- onPause
+- onStop
+- onDestroy
+
+## Permission
+
+```java
+checkSelfPermission()
+requestPermissions()
+```
+
+## Resource Reference
+
+```xml
+@string/hello
+@color/red
+@drawable/logo
+```
+
+## Layout
+
+```xml
+LinearLayout
+orientation
+gravity
+```
+
+## Hiển thị Text Đúng Language
+
+```java
+textView.setText(R.string.hello);
+```
+
+## Event
+
+```xml
+android:onClick
+```
+
+hoặc
+
+```java
+setOnClickListener()
+```
+
+## Assets
+
+```java
+getAssets().open("data.json");
+```
+
+Ưu điểm:
+
+- Offline
+- Nhanh
+- Không cần Internet
+- Dữ liệu đi theo APK
 
 
 
