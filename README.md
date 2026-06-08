@@ -1132,10 +1132,11 @@ Mục đích: Để app không bị hệ điều hành chặn khi gửi dữ li�
 # Chạy thử và Kiểm tra
 - Test màn 1: Kiểm tra xem thông tin cá nhân đã chuẩn chưa. Ấn nút 1 xem có nhảy sang màn 2 không.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bd297eb2-5982-4faa-9489-6b56c20b51a8" />
-ấn nút chức năng 1 . đã nhảu sang màn hình 2
+ấn nút chức năng 1 . đã nhảy sang màn hình 2
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/28d970af-5751-49a2-a84c-ee5e3998c5ca" />
-- Test màn 2: Nhập thử a=0, b=0, c=5 -> Ấn nút giải. App phải hiện "Vô nghiệm" và báo Gửi API thành công kèm số thứ tự (STT) do Server trả về.
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/47736ecf-a90c-4dcf-aea5-0db31ff82628" />
+- Test màn 2: Nhập thử a, b, c -> Ấn nút giải. App phải hiện kêt quả và báo Gửi API thành công kèm số thứ tự (STT) do Server trả về.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4508ef05-8cc8-4731-8fa6-6ae87559d2a1" />
+
 
 Test màn 3: Ấn nút mở WebView xem trang web có tải mượt mà và nhận đúng mã sinh viên ở thanh địa chỉ không.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3ef40c06-578e-49ba-909f-edffed056acc" />
