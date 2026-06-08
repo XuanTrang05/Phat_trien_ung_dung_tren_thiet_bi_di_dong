@@ -91,11 +91,17 @@ Nút mở Screen2
 - THIẾT KẾ SCREEN 3
 - ở phần url sẽ để https://www.google.com , để test thử xem phần mit app có hoạt động không
 - Kéo thêm 1 dòng chữ (Label) từ cột User Interface bên trái thả vào màn hình, đặt nó nằm phía trên hoặc phía dưới cái WebViewer đó. Thay đổi chữ hiển thị của nút bấm thành: "bài tập của xuân trang".
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e5c40280-2ab1-4ff1-ac0a-da6409528b2f" />
-- kết quả test
-- Nút bấm chứa tên vẫn nằm ở đó, còn ô phía dưới thì hiển thị trang Google! Điều này chứng tỏ app của bạn hoạt động
 
-<img width="1179" height="2556" alt="image" src="https://github.com/user-attachments/assets/16915861-6068-4a8f-b14b-c33bfcdee65a" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/992d3bac-7a35-4427-8478-877e210b21f0" />
+
+- kết quả test
+
+<img width="1179" height="2556" alt="image" src="https://github.com/user-attachments/assets/a8113bec-2bbc-44c1-8d1c-07426ed32747" />
+
+<img width="1179" height="2556" alt="image" src="https://github.com/user-attachments/assets/830701b1-bba6-47e2-82a2-0aea7b9b5e90" />
+
+<img width="1179" height="2556" alt="image" src="https://github.com/user-attachments/assets/86b11189-c1ff-4872-ba23-59b9d85ce277" />
+
 
 cat > /mnt/user-data/outputs/MoTa_MITAppInventor.md << 'EOF'
 # Mô tả công cụ MIT App Inventor
@@ -1130,12 +1136,11 @@ Mục đích: Để app không bị hệ điều hành chặn khi gửi dữ li�
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/28d970af-5751-49a2-a84c-ee5e3998c5ca" />
 - Test màn 2: Nhập thử a=0, b=0, c=5 -> Ấn nút giải. App phải hiện "Vô nghiệm" và báo Gửi API thành công kèm số thứ tự (STT) do Server trả về.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/47736ecf-a90c-4dcf-aea5-0db31ff82628" />
-**Thưa thầy, phần code gọi API POST dữ liệu và WebView của em đã viết chuẩn cấu trúc, nhưng do server k58kmt.tdh.io.vn hiện đang sập (hoặc không truy cập được từ mạng ngoài) nên app nhảy vào nhánh báo lỗi kết nối ạ.**
-<img width="1919" height="716" alt="image" src="https://github.com/user-attachments/assets/44afaa7a-4a28-4c16-8786-eea3ea4daa16" />
 
 Test màn 3: Ấn nút mở WebView xem trang web có tải mượt mà và nhận đúng mã sinh viên ở thanh địa chỉ không.
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/048468c0-5c6f-4d58-bb54-b3a812c9720f" />
-** tên miền k58kmt.tdh.io.vn) thực sự đang sập hoặc không tồn tại. Tuy nhiên dòng chữ nhỏ trên màn hình máy ảo, nó ghi là: The webpage at https://k58kmt.tdh.io.vn/?masv=K225480106064 could not be loaded... Điều này chứng tỏ code WebView định danh đã chạy đúng 100%!.Ứng dụng đã gọi đúng linh kiện trình duyệt. Ứng dụng đã tự động tạo chuỗi, ghép thành công mã số sinh viên K225480106064 vào đuôi URL một cách chuẩn xác đúng như yêu cầu của đề bài. Việc web không hiện ra chỉ đơn thuần là do máy chủ đang đóng cửa server. ** 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3ef40c06-578e-49ba-909f-edffed056acc" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/35c7f685-eea8-4e6f-8fb6-265ee31a452c" />
 
 
   
